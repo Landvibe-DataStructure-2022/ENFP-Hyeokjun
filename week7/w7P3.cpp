@@ -47,10 +47,10 @@ public:
         nodelist.push_back(newNode);
     }
 
-    void dfs(Node *cur) {
+    void traverse(Node *cur) {
 
         for (int i = 0; i < cur->child.size(); i++) {
-            dfs(cur->child[i]);
+            traverse(cur->child[i]);
         }
         if(cur == root) cout << 0 << ' ';
         else cout << cur->parent->data << ' ';
@@ -69,7 +69,7 @@ int main() {
             cin >> n >> m;
             tree.insertNode(n, m);
         }
-        tree.dfs(tree.getRoot());
+        tree.traverse(tree.getRoot());
         cout << endl;
     }
 }

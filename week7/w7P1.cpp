@@ -48,11 +48,11 @@ public:
     }
 
     void dfs(Node *cur) {
-        if(cur == root) cout << 0 << ' ';
-        else cout << cur->parent->data << ' ';
+        cout << cur->data << ' ';
         for (int i = 0; i < cur->child.size(); i++) {
             dfs(cur->child[i]);
         }
+
     }
 };
 
