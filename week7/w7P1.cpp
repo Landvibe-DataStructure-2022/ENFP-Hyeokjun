@@ -47,6 +47,7 @@ public:
         nodelist.push_back(newNode);
     }
 
+    //문제에서 현재 노드의 부모노드가 가지는 값 출력인데 현재 노드의 값이 출력되고있습니다
     void dfs(Node *cur) {
         cout << cur->data << ' ';
         for (int i = 0; i < cur->child.size(); i++) {
