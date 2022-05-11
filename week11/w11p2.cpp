@@ -60,7 +60,6 @@ public:
     void deletion(int elem) {
 
         Node *cur = search(elem);
-
         bool isLeft = false;
         if (cur != root) {
             if (cur->par->left == cur) {
@@ -73,8 +72,7 @@ public:
         if (cur->left == NULL && cur->right == NULL) {
             if (cur == root) {
                 root = NULL;
-            }
-            else {
+            } else {
                 if (isLeft) {
                     cur->par->left = NULL;
                 } else {
@@ -113,14 +111,15 @@ public:
                 tmp = tmp->left;
             }
             int trash = tmp->elem;
-            deletion(tmp->elem);
+            deletion(trash);
             cur->elem = trash;
         }
     }
 
     Node *search(int elem) {
         Node *cur = root;
-        while (true) {
+        while (cur != NULL) {
+
             if (elem > cur->elem) {
                 cur = cur->right;
             } else if (elem < cur->elem) {
