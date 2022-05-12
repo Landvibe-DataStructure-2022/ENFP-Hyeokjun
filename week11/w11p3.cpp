@@ -66,17 +66,14 @@ public:
         size++;
     }
 
-    void traversal(Node* cur, int m){
+    void traversal(Node* cur){
         if(cur == NULL){
             return;
         }
 
-        traversal(cur->left, m);
-        cnt++;
-        if(cnt == m){
-            cout << cur->elem << endl;
-        }
-        traversal(cur->right, m);
+        traversal(cur->left);
+        cout << cur->elem << ' ';
+        traversal(cur->right);
     }
 
 };
@@ -85,7 +82,7 @@ int main() {
     int tc;
     cin >> tc;
     while (tc--) {
-        int n, m;
+        int n;
         cnt = 0;
         BST bst;
         cin >> n;
@@ -94,8 +91,8 @@ int main() {
             cin >> k;
             bst.insert(k);
         }
-        cin >> m;
 
-        bst.traversal(bst.root, m);
+        bst.traversal(bst.root);
+        cout << endl;
     }
 }
