@@ -101,31 +101,6 @@ public:
         doubleRotate = false;
     }
 
-    void put(int key) {
-        curA = hashFunction(key, false, true);
-        curB = hashFunction(key, true, false);
-        int probing = 1;
-
-        if (table[curA].available == false && probing <= maxSizeA) {
-            curA = hashFunction(curB + 1, false, true);
-            curB = hashFunction(curB + 1, true, false);
-            probing++;
-        }
-
-        while(table[curA].available == false && probing <= maxSizeA){
-            curA = hashFunction(1, true, true);
-            curB = hashFunction(1, false, false);
-            probing++;
-        }
-
-        if(probing > maxSizeA){
-            return;
-        }
-
-        table[curA].available = false;
-        cout << curA + 1 << ' ';
-
-    }
 
 };
 
